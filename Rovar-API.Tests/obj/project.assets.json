@@ -411,6 +411,19 @@
         "build": {
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "Rovar-API/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Rovar-API.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Rovar-API.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -932,11 +945,17 @@
         "xunit.runner.visualstudio.2.8.2.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "Rovar-API/1.0.0": {
+      "type": "project",
+      "path": "../Rovar-API/Rovar-API.csproj",
+      "msbuildProject": "../Rovar-API/Rovar-API.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.NET.Test.Sdk >= 17.12.0",
+      "Rovar-API >= 1.0.0",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.9.2",
       "xunit.runner.visualstudio >= 2.8.2"
@@ -973,7 +992,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\AK\\devops-journey\\KYH\\05. CICD\\Examination\\Rovar-API\\Rovar-API.csproj": {
+              "projectPath": "C:\\Users\\AK\\devops-journey\\KYH\\05. CICD\\Examination\\Rovar-API\\Rovar-API.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

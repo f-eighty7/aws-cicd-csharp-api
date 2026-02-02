@@ -1,9 +1,13 @@
 name: .NET CI
+
 on:
   push:
     branches: ["main", "dev"]
   pull_request:
     branches: ["main", "dev"]
+
+permissions:
+  contents: read
 
 jobs:
   build-and-test:
@@ -47,17 +51,6 @@ jobs:
         uses: actions/setup-dotnet@v5
         with:
           dotnet-version: "9.0.x"
-
-      - name: Cache  NuGet packages
-        uses: actions/cache@v5
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
-
-      - name: Restore dependencies
-        run: dotnet restore
 
       - name: Publish
         run: dotnet publish ./Rovar-API/Rovar-API.csproj -c Release -o ./published-app

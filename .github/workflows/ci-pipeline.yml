@@ -60,10 +60,12 @@ jobs:
         run: dotnet restore
 
       - name: Publish
-        run: dotnet publish --configuration Release --output ./publish
+        run: dotnet publish ./Rovar-API/Rovar-API.csproj -c Release -o ./published-app
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x '*.git*'
+        run: |
+          cd published-app
+          zip -r ../deploy.zip .
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v22
@@ -72,6 +74,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: Rova-App
           environment_name: Rova-App-env
-          version_label: 1.0.${{ github.run_id }}
+          version_label: "ver-${{ github.run_id }}"
           region: eu-north-1
           deployment_package: deploy.zip

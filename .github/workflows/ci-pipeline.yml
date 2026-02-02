@@ -21,6 +21,17 @@ jobs:
         with:
           dotnet-version: "9.0.x"
 
+      - name: Cache  NuGet packages
+        uses: actions/cache@v5
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore dependencies
+        run: dotnet restore
+
       - name: Build
         run: dotnet build --no-restore --configuration Release
 
@@ -40,17 +51,6 @@ jobs:
         uses: actions/setup-dotnet@v5
         with:
           dotnet-version: "9.0.x"
-
-      - name: Cache  NuGet packages
-        uses: actions/cache@v5
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
-
-      - name: Restore dependencies
-        run: dotnet restore
 
       - name: Publish
         run: dotnet publish ./Rovar-API/Rovar-API.csproj -c Release -o ./published-app

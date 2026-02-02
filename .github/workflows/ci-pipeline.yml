@@ -18,7 +18,6 @@ jobs:
           dotnet-version: "9.0.x"
 
       - name: Cache  NuGet packages
-        id: nuget-cache
         uses: actions/cache@v5
         with:
           path: ~/.nuget/packages
@@ -27,7 +26,6 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Restore dependencies
-        if: steps.nuget-cache.outputs.cache-hit != 'true'
         run: dotnet restore
 
       - name: Build

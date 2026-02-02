@@ -1,35 +1,37 @@
 name: .NET CI
 on:
-    push:
-        branches: ["main", "dev"]
-    pull_request:
-        branches: ["main", "dev"]
+  push:
+    branches: ["main", "dev"]
+  pull_request:
+    branches: ["main", "dev"]
 
 jobs:
-    build-and-test:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v6
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
 
-            - name: Setup .NET
-              uses: actions/setup-dotnet@v5
-              with:
-                  dotnet-version: "9.0.x"
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: "9.0.x"
 
-            - name: Cache  NuGet packages
-              uses: actions/cache@v5
-              with:
-                  path: ~/.nuget/packages
-                  key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
-                  restore-keys: |
-                      ${{ runner.os }}-nuget-
+      - name: Cache  NuGet packages
+        id: nuget-cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
 
-            - name: Restore dependencies
-              run: dotnet restore
+      - name: Restore dependencies
+        if: steps.nuget-cache.outputs.cache-hit != 'true'
+        run: dotnet restore
 
-            - name: Build
-              run: dotnet build --no-restore --configuration Release
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
 
-            - name: Test
-              run: dotnet test --no-build --configuration Release --verbosity normal
+      - name: Test
+        run: dotnet test --no-build --configuration Release --verbosity normal

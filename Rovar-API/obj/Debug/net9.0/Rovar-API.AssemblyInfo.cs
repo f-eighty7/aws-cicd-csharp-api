@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Rovar-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+875dc6d1ed7ad1452eacca52be7cc92b72fa0b40")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb6a46c839597e2e8c3c3b64f57b905d22305c9f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Rovar-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Rovar-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

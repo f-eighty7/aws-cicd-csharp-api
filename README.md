@@ -9,10 +9,8 @@ The project was created as part of a **CI/CD** assignment focusing on automated 
 The application is deployed live on AWS Elastic Beanstalk. Click the links below to test the API directly:
 
 ### 🏠 Home (Base URL)
-
 Welcome message to verify that the API is running.
-
-* 🔗 **Link:** [http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/](http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/)
+* 🔗 **Link:** [Open Start Page](http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/)
 
 ---
 
@@ -21,33 +19,14 @@ Welcome message to verify that the API is running.
 Here are direct links to test the core features:
 
 ### 1. Encrypt (To Rövarspråket)
-
 Converts standard text into Rövarspråket.
-
 * **Test Link (Text: "hej"):**
-[http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/encrypt?text=hej](https://www.google.com/search?q=http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/encrypt%3Ftext%3Dhej)
+  [Click here to Encrypt "hej"](http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/encrypt?text=hej)
 
 **Expected Response:**
-
 ```json
 "hohejoj"
-
 ```
-
-### 2. Decrypt (From Rövarspråket)
-
-Restores text from Rövarspråket back to standard text.
-
-* **Test Link (Text: "hohejoj"):**
-[http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/decrypt?text=hohejoj](https://www.google.com/search?q=http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/decrypt%3Ftext%3Dhohejoj)
-
-**Expected Response:**
-
-```json
-"hej"
-
-```
-
 ---
 
 ## 🛠️ Tech Stack

@@ -1,3 +1,4 @@
+```markdown
 # 🏴‍☠️ Rövarspråket API (Rovar-App)
 
 This is a REST API built with **.NET 9 (C#)** that automatically translates text to and from [Rövarspråket](https://en.wikipedia.org/wiki/R%C3%B6varspr%C3%A5ket) (The Robber Language).
@@ -21,12 +22,28 @@ Here are direct links to test the core features:
 ### 1. Encrypt (To Rövarspråket)
 Converts standard text into Rövarspråket.
 * **Test Link (Text: "hej"):**
-  [Click here to Encrypt "hej"](http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/encrypt?text=hej)
+  http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/encrypt?text=hej
 
 **Expected Response:**
 ```json
 "hohejoj"
+
 ```
+
+### 2. Decrypt (From Rövarspråket)
+
+Restores text from Rövarspråket back to standard text.
+
+* **Test Link (Text: "hohejoj"):**
+http://rova-app-env.eba-55anzhtu.eu-north-1.elasticbeanstalk.com/decrypt%3Ftext%3Dhohejoj
+
+**Expected Response:**
+
+```json
+"hej"
+
+```
+
 ---
 
 ## 🛠️ Tech Stack
